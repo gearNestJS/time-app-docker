@@ -28,6 +28,8 @@ services:
       MYSQL_ROOT_USER: root
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: time_db
+    volumes:
+      - db_data:/var/lib/mysql
 
   adminer:
     image: adminer:latest
@@ -36,3 +38,6 @@ services:
       - 8888:8080
     depends_on:
       - db
+
+volumes:
+  db_data:
