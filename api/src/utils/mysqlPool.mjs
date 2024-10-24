@@ -2,11 +2,11 @@ import mysql from 'mysql2'
 
 const pool = mysql.createPool({
   connectionLimit: 100,
-  host: 'db',
-  port: '3306',
-  user: 'root',
-  password: 'root',
-  database: 'time_db',
+  host: process.env.MYSQL_HOST || 'db',
+  port: process.env.MYSQL_PORT || '3306',
+  user: process.env.MYSQL_USER || 'root',
+  password: process.env.MYSQL_PASSWORD || 'root',
+  database: process.env.MYSQL_DATABASE || 'time_db',
 })
 
 const CREATE_TIMES_TABLE_SQL = `CREATE TABLE IF NOT EXISTS times (
